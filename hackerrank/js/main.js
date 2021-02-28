@@ -76,11 +76,41 @@ function bomberMan(n, grid) {
     return grid
 }
 
-console.log(bomberMan(7, [
-  '.......',
-  '...0.0.',
-  '....0..',
-  '..0....',
-  '00...00',
-  '00.0...'
-]))
+// console.log(bomberMan(7, [
+//   '.......',
+//   '...0.0.',
+//   '....0..',
+//   '..0....',
+//   '00...00',
+//   '00.0...'
+// ]))
+
+function insertionSort1(n, arr) {
+    const lamda = arr[n - 1]
+    for(let i = n - 2; i >= -1; i--){
+        if(arr[i] > lamda){
+            arr[i + 1] = arr[i]
+        } else {
+            arr[i + 1] = lamda
+            break;
+        }
+        console.log(arr.join(' '))
+    }
+    console.log(arr.join(' '))
+}
+
+function runningTime(arr) {
+    let n = arr.length, count = 0;
+    for(let i = 1; i < n; i++){
+            for(let j = 0; j < i; j++){
+                if(arr[i] < arr[j]){
+                    const tempPosition = arr[i]
+                    arr[i] = arr[j]
+                    arr[j] = tempPosition
+                    console.log(arr);
+                    count++
+                }
+            }
+    }
+    return count
+}
